@@ -1,0 +1,19 @@
+{
+    "plugins": [
+        "react",
+        "react-native"
+    ],
+    "extends": [
+        "airbnb",
+        "plugin:react/recommended"
+    ],
+    "ecmaFeatures": {
+        "jsx": true
+    },
+    "rules": {
+        "react/jsx-filename-extension": [1, {
+            "extensions": [".js", ".jsx"]
+        }],
+        "react/prefer-stateless-function": [0, { "ignorePureComponents": true }]
+    }
+}
