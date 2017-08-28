@@ -4,7 +4,8 @@
         "react-native"
     ],
     "extends": [
-        "airbnb",
+        "standard",
+        "standard-react",
         "plugin:react/recommended"
     ],
     "ecmaFeatures": {
@@ -12,10 +13,22 @@
     },
     "rules": {
         "indent": ["error", 4],
-        "react/jsx-indent": [1, 4],
+        "react/jsx-indent": [0, 2],
+        "react/jsx-indent-props": [1, 4],
+        "react-native/no-unused-styles": 2,
+        "react-native/split-platform-components": 2,
+        "react-native/no-inline-styles": 2,
+        "react-native/no-color-literals": 2,
         "react/jsx-filename-extension": [1, {
             "extensions": [".js", ".jsx"]
         }],
-        "react/prefer-stateless-function": [0, { "ignorePureComponents": true }]
+        "react/prefer-stateless-function": [0, { "ignorePureComponents": true }],
+        "no-const-assign": "warn",
+        "no-this-before-super": "warn",
+        "no-undef": "warn",
+        "no-unreachable": "warn",
+        "no-unused-vars": "warn",
+        "constructor-super": "warn",
+        "valid-typeof": "warn"
     }
 }
