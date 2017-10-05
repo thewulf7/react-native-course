@@ -1,11 +1,18 @@
 import React, { Component } from "react";
 import { Text, Picker } from "react-native";
 import { connect } from "react-redux";
-import { Card, CardSection, Input, Button } from "./components/common";
-import { employeeUpdate } from "../actions";
+import { Card, CardSection, Input, Button } from "./common";
+import { employeeUpdate, employeeCreate } from "../actions";
 
 class EmployeeCreate extends Component {
     state = {};
+
+    onButtonPress() {
+        const { name, phone, shift } = this.props;
+
+        this.props.employeeCreate({ name, phone, shift: shift || '1' });
+    }
+
     render() {
         return (
             <Card>
@@ -24,15 +31,19 @@ class EmployeeCreate extends Component {
                         placeholder=""
                         value={this.props.phone}
                         onChangeText={value =>
-                            this.props.employeeUpdate({ prop: "phone",  value })}
+                            this.props.employeeUpdate({ prop: "phone", value })}
                     />
                 </CardSection>
-                <CardSection style={{ flexDirection: 'column' }}>
+                <CardSection style={{ flexDirection: "column" }}>
                     <Text style={styles.pickerTextStyle}>Shift</Text>
                     <Picker
                         style={{ flex: 1 }}
                         selectedValue={this.props.shift}
-                        onValueChange={day => this.props.employeeUpdate({ prop: 'shift', value: day })}
+                        onValueChange={day =>
+                            this.props.employeeUpdate({
+                                prop: "shift",
+                                value: day,
+                            })}
                     >
                         <Picker.Item label="1" value="1" />
                         <Picker.Item label="2" value="2" />
@@ -59,8 +70,8 @@ const mapStateToProps = state => {
 const styles = {
     pickerTextStyle: {
         fontSize: 18,
-        paddingLeft: 20
-    }
+        paddingLeft: 20,
+    },
 };
 
-export default connect(null, { employeeUpdate })(EmployeeCreate);
+export default connect(null, { employeeUpdate, employeeCreate })(EmployeeCreate);
