@@ -13,3 +13,5 @@ export const EMPLOYEE_UPDATE = 'employeeUpdate';
 export const EMPLOYEE_CREATE = 'employeeCreate';
 
 export const EMPLOYEE_FETCH_SUCCESS = 'employeeFetchDone';
+
+export const EMPLOYEE_SAVE_SUCCESS = 'employeeSaveSuccess';
